@@ -44,6 +44,9 @@ function Feedback() {
 
   const countPositiveFeedbackPercentage = () =>
     Math.ceil((good * 100) / countTotalFeedback());
+
+  const totalFeedback = countTotalFeedback();
+
   return (
     <div className={s.box}>
       <Section title="Please leave feedback">
@@ -54,12 +57,12 @@ function Feedback() {
       </Section>
 
       <Section title="Statistics">
-        {countTotalFeedback() ? (
+        {totalFeedback ? (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback()}
+            total={totalFeedback}
             positivePercentage={countPositiveFeedbackPercentage()}
           />
         ) : (
